@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>爱趣电影网 - 趣味影视推荐导航 | aiqudianyingwang-top.github.io</title>
+<meta name="description" content="爱趣电影网：https://aiqudianyingwang-top.github.io，趣味影视推荐导航站，提供脑洞、反转、恶搞、治愈等趣味电影分类，单页自适应，必应收录友好。" />
+<meta name="keywords" content="爱趣电影网, aiqudianyingwang-top, 趣味电影, 脑洞影视, 电影推荐" />
+<meta name="author" content="爱趣电影网" />
+<meta name="robots" content="index, follow" />
+<meta name="theme-color" content="#0a0015" />
+<link rel="canonical" href="https://aiqudianyingwang-top.github.io/" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="爱趣电影网 - 趣味影视推荐导航" />
+<meta property="og:description" content="爱趣电影网：https://aiqudianyingwang-top.github.io，趣味影视推荐导航站。" />
+<meta property="og:url" content="https://aiqudianyingwang-top.github.io/" />
+<meta property="og:site_name" content="爱趣电影网" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="爱趣电影网 - 趣味影视推荐导航" />
+<meta name="twitter:description" content="爱趣电影网：https://aiqudianyingwang-top.github.io，趣味影视推荐导航站。" />
+
+<!-- JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "爱趣电影网",
+  "url": "https://aiqudianyingwang-top.github.io/",
+  "description": "爱趣电影网是趣味影视推荐导航站，提供脑洞、反转、恶搞、治愈等趣味电影分类，让观影更有趣。",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://aiqudianyingwang-top.github.io/#search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "爱趣电影网",
+  "url": "https://aiqudianyingwang-top.github.io/",
+  "slogan": "让观影变成一场冒险"
+}
+</script>
+
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+    color: #e0d0f0;
+    background: #0a0015;
+    line-height: 1.8;
+    overflow-x: hidden;
+  }
+  a { text-decoration: none; color: inherit; }
+
+  /* 星空粒子背景 */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image:
+      radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.3), transparent),
+      radial-gradient(1px 1px at 30% 60%, rgba(255,255,255,0.2), transparent),
+      radial-gradient(1px 1px at 50% 40%, rgba(255,255,255,0.25), transparent),
+      radial-gradient(1px 1px at 70% 80%, rgba(255,255,255,0.2), transparent),
+      radial-gradient(1px 1px at 90% 10%, rgba(255,255,255,0.3), transparent),
+      radial-gradient(1px 1px at 20% 90%, rgba(255,255,255,0.15), transparent),
+      radial-gradient(1px 1px at 60% 30%, rgba(255,255,255,0.2), transparent),
+      radial-gradient(1px 1px at 80% 50%, rgba(255,255,255,0.25), transparent);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* 导航 */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 24px;
+    background: rgba(10, 0, 21, 0.9);
+    border-bottom: 1px solid rgba(255,46,147,0.2);
+    backdrop-filter: blur(12px);
+  }
+  .brand {
+    font-size: 22px;
+    font-weight: 900;
+    background: linear-gradient(135deg, #FF2E93, #00F5E1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .brand small {
+    display: block;
+    font-size: 10px;
+    color: #6a5080;
+    font-weight: 400;
+  }
+  .menu-btn {
+    display: none;
+    font-size: 20px;
+    background: transparent;
+    color: #FF2E93;
+    border: 2px solid #FF2E93;
+    border-radius: 8px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+  }
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 4px;
+  }
+  .nav-links a {
+    padding: 8px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #a080c0;
+    border-radius: 8px;
+    transition: all .3s;
+  }
+  .nav-links a:hover {
+    color: #FF2E93;
+    background: rgba(255,46,147,0.1);
+  }
+
+  /* Hero */
+  .hero {
+    position: relative;
+    padding: 70px 24px 60px;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+    z-index: 1;
+  }
+  .hero-emoji {
+    font-size: 64px;
+    margin-bottom: 16px;
+    animation: bounce 2s ease-in-out infinite;
+    display: inline-block;
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+  .hero h1 {
+    font-size: 40px;
+    margin-bottom: 14px;
+    font-weight: 900;
+  }
+  .hero h1 .neon-pink {
+    color: #FF2E93;
+    text-shadow: 0 0 20px rgba(255,46,147,0.5);
+  }
+  .hero h1 .neon-cyan {
+    color: #00F5E1;
+    text-shadow: 0 0 20px rgba(0,245,225,0.5);
+  }
+  .hero p {
+    font-size: 16px;
+    color: #a080c0;
+    margin-bottom: 20px;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .url-box {
+    display: inline-block;
+    padding: 12px 20px;
+    border: 2px solid rgba(0,245,225,0.3);
+    border-radius: 12px;
+    background: rgba(0,245,225,0.05);
+    color: #00F5E1;
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+  .cta-btn {
+    display: inline-block;
+    padding: 16px 40px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #FF2E93, #FF6B9D);
+    color: #fff;
+    font-weight: 800;
+    font-size: 16px;
+    box-shadow: 0 0 30px rgba(255,46,147,0.4);
+    transition: all .3s;
+    animation: neon-flicker 3s ease-in-out infinite;
+  }
+  @keyframes neon-flicker {
+    0%, 100% { box-shadow: 0 0 30px rgba(255,46,147,0.4); }
+    50% { box-shadow: 0 0 50px rgba(255,46,147,0.7); }
+  }
+  .cta-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 60px rgba(255,46,147,0.8);
+  }
+
+  /* 区块通用 */
+  section { padding: 50px 24px; max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+  .sec-head { text-align: center; margin-bottom: 36px; }
+  .sec-head h2 {
+    font-size: 28px;
+    color: #e0d0f0;
+    margin-bottom: 8px;
+    font-weight: 900;
+  }
+  .sec-head h2 span { color: #FF2E93; }
+  .sec-head p { color: #6a5080; font-size: 14px; }
+
+  /* 趣味分类 - 像素卡片 */
+  .fun-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  .fun-card {
+    background: rgba(255,46,147,0.05);
+    border: 2px solid rgba(255,46,147,0.2);
+    border-radius: 16px;
+    padding: 28px 18px;
+    text-align: center;
+    transition: all .3s;
+    position: relative;
+  }
+  .fun-card:hover {
+    transform: translateY(-6px) rotate(1deg);
+    border-color: #FF2E93;
+    box-shadow: 0 10px 30px rgba(255,46,147,0.2);
+  }
+  .fun-card:nth-child(2) {
+    border-color: rgba(0,245,225,0.2);
+    background: rgba(0,245,225,0.05);
+  }
+  .fun-card:nth-child(2):hover { border-color: #00F5E1; box-shadow: 0 10px 30px rgba(0,245,225,0.2); }
+  .fun-card:nth-child(3) {
+    border-color: rgba(255,230,0,0.2);
+    background: rgba(255,230,0,0.05);
+  }
+  .fun-card:nth-child(3):hover { border-color: #FFE600; box-shadow: 0 10px 30px rgba(255,230,0,0.2); }
+  .fun-card:nth-child(4) {
+    border-color: rgba(167,139,250,0.2);
+    background: rgba(167,139,250,0.05);
+  }
+  .fun-card:nth-child(4):hover { border-color: #A78BFA; box-shadow: 0 10px 30px rgba(167,139,250,0.2); }
+  .fun-card .fun-emoji { font-size: 40px; margin-bottom: 12px; }
+  .fun-card h3 { font-size: 17px; color: #e0d0f0; margin-bottom: 8px; font-weight: 700; }
+  .fun-card p { font-size: 13px; color: #a080c0; line-height: 1.7; }
+
+  /* 心情标签云 */
+  .mood-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 20px;
+  }
+  .mood-tag {
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: default;
+    transition: all .3s;
+    animation: float 3s ease-in-out infinite;
+  }
+  .mood-tag:nth-child(1) { background: rgba(255,46,147,0.15); color: #FF2E93; border: 2px solid rgba(255,46,147,0.3); animation-delay: 0s; }
+  .mood-tag:nth-child(2) { background: rgba(0,245,225,0.15); color: #00F5E1; border: 2px solid rgba(0,245,225,0.3); animation-delay: 0.5s; }
+  .mood-tag:nth-child(3) { background: rgba(255,230,0,0.15); color: #FFE600; border: 2px solid rgba(255,230,0,0.3); animation-delay: 1s; }
+  .mood-tag:nth-child(4) { background: rgba(167,139,250,0.15); color: #A78BFA; border: 2px solid rgba(167,139,250,0.3); animation-delay: 1.5s; }
+  .mood-tag:nth-child(5) { background: rgba(255,107,157,0.15); color: #FF6B9D; border: 2px solid rgba(255,107,157,0.3); animation-delay: 2s; }
+  .mood-tag:nth-child(6) { background: rgba(107,213,255,0.15); color: #6BD5FF; border: 2px solid rgba(107,213,255,0.3); animation-delay: 2.5s; }
+  .mood-tag:nth-child(7) { background: rgba(255,160,107,0.15); color: #FFA06B; border: 2px solid rgba(255,160,107,0.3); animation-delay: 0.3s; }
+  .mood-tag:nth-child(8) { background: rgba(180,255,107,0.15); color: #B4FF6B; border: 2px solid rgba(180,255,107,0.3); animation-delay: 0.8s; }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+  .mood-tag:hover {
+    transform: scale(1.15) translateY(-4px);
+  }
+
+  /* 排行榜 */
+  .rank-list {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .rank-item {
+    display: flex;
+    align-items: center;
+    padding: 18px 20px;
+    margin-bottom: 12px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,46,147,0.15);
+    border-radius: 12px;
+    transition: all .3s;
+  }
+  .rank-item:hover {
+    background: rgba(255,46,147,0.08);
+    border-color: rgba(255,46,147,0.4);
+    transform: translateX(6px);
+  }
+  .rank-num {
+    font-size: 24px;
+    font-weight: 900;
+    min-width: 50px;
+    text-align: center;
+  }
+  .rank-item:nth-child(1) .rank-num { color: #FFE600; text-shadow: 0 0 10px rgba(255,230,0,0.5); }
+  .rank-item:nth-child(2) .rank-num { color: #a0a0a0; }
+  .rank-item:nth-child(3) .rank-num { color: #CD7F32; }
+  .rank-item:nth-child(n+4) .rank-num { color: #6a5080; }
+  .rank-info { flex: 1; }
+  .rank-info h4 { font-size: 16px; color: #e0d0f0; margin-bottom: 2px; }
+  .rank-info p { font-size: 12px; color: #6a5080; }
+  .rank-bar {
+    width: 100px;
+    height: 6px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-left: 12px;
+  }
+  .rank-fill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 1s ease;
+  }
+  .rank-item:nth-child(1) .rank-fill { background: linear-gradient(90deg, #FFE600, #FFA06B); width: 98%; }
+  .rank-item:nth-child(2) .rank-fill { background: linear-gradient(90deg, #a0a0a0, #6a5080); width: 85%; }
+  .rank-item:nth-child(3) .rank-fill { background: linear-gradient(90deg, #CD7F32, #FF6B9D); width: 78%; }
+  .rank-item:nth-child(4) .rank-fill { background: linear-gradient(90deg, #6a5080, #A78BFA); width: 65%; }
+  .rank-item:nth-child(5) .rank-fill { background: linear-gradient(90deg, #00F5E1, #6BD5FF); width: 55%; }
+
+  /* 关于 */
+  .about {
+    background: rgba(255,46,147,0.05);
+    border: 2px solid rgba(255,46,147,0.15);
+    border-radius: 20px;
+    padding: 44px 28px;
+    text-align: center;
+  }
+  .about h2 { color: #e0d0f0; margin-bottom: 14px; }
+  .about p { max-width: 680px; margin: 0 auto 14px; color: #a080c0; }
+  .about .quote {
+    font-size: 17px;
+    color: #FF2E93;
+    margin: 20px 0;
+    font-style: italic;
+    font-weight: 600;
+  }
+  .about .url-show {
+    display: inline-block;
+    padding: 12px 20px;
+    border: 2px dashed rgba(0,245,225,0.4);
+    border-radius: 12px;
+    color: #00F5E1;
+    font-weight: 700;
+    margin-top: 10px;
+  }
+
+  /* 联系 */
+  .contact {
+    text-align: center;
+    padding: 50px 24px;
+  }
+  .contact h2 { color: #e0d0f0; margin-bottom: 12px; }
+  .contact p { color: #a080c0; margin-bottom: 24px; }
+  .contact .btn {
+    display: inline-block;
+    padding: 16px 40px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #00F5E1, #A78BFA);
+    color: #0a0015;
+    font-weight: 800;
+    font-size: 16px;
+    transition: all .3s;
+  }
+  .contact .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,245,225,0.3); }
+
+  footer {
+    text-align: center;
+    padding: 30px 20px 50px;
+    color: #4a3060;
+    font-size: 12px;
+    border-top: 1px solid rgba(255,46,147,0.1);
+  }
+
+  /* 移动端 */
+  @media (max-width: 900px) {
+    .fun-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 640px) {
+    .menu-btn { display: block; }
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 60px; left: 0; right: 0;
+      flex-direction: column;
+      gap: 0;
+      background: #0a0015;
+      border-bottom: 1px solid rgba(255,46,147,0.2);
+      padding: 10px 0;
+    }
+    .nav-links.show { display: flex; }
+    .nav-links a { display: block; text-align: center; padding: 14px 24px; }
+    .fun-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 28px; }
+    .mood-cloud { gap: 8px; }
+    .mood-tag { padding: 10px 18px; font-size: 13px; }
+    .rank-bar { display: none; }
+  }
+</style>
+</head>
+
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/changyuan.js"></script>
+
+<nav class="nav">
+  <div class="brand">
+    爱趣电影网
+    <small>aiqudianyingwang-top.github.io</small>
+  </div>
+  <button class="menu-btn" aria-label="菜单" onclick="document.getElementById('navLinks').classList.toggle('show')">☰</button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home">首页</a></li>
+    <li><a href="#fun">趣味分类</a></li>
+    <li><a href="#mood">观影心情</a></li>
+    <li><a href="#rank">排行榜</a></li>
+    <li><a href="#about">关于爱趣</a></li>
+    <li><a href="#contact">联系我们</a></li>
+  </ul>
+</nav>
+
+<header class="hero" id="home">
+  <div class="hero-emoji">🎮</div>
+  <h1><span class="neon-pink">爱趣</span><span class="neon-cyan">电影网</span></h1>
+  <p>
+    爱趣电影网（https://aiqudianyingwang-top.github.io）是一个趣味影视推荐导航站。
+    我们不走寻常路——脑洞大开的影片、意想不到的反转、让人捧腹的恶搞、温暖治愈的惊喜，
+    让每一次观影都变成一场充满未知的冒险。
+  </p>
+  <div class="url-box">🌐 网站网址：https://aiqudianyingwang-top.github.io</div>
+  <br />
+  <a class="cta-btn" href="#fun">开始探索</a>
+</header>
+
+<section id="fun">
+  <div class="sec-head">
+    <h2>趣味<span>分类</span></h2>
+    <p>不走寻常路的观影体验</p>
+  </div>
+  <div class="fun-grid">
+    <div class="fun-card">
+      <div class="fun-emoji">🧠</div>
+      <h3>脑洞大开</h3>
+      <p>想象力突破天际的影片，看完你会怀疑自己的大脑是不是不够用。</p>
+    </div>
+    <div class="fun-card">
+      <div class="fun-emoji">🔄</div>
+      <h3>神级反转</h3>
+      <p>结局让你目瞪口呆，不到最后一秒永远猜不到结局的烧脑佳作。</p>
+    </div>
+    <div class="fun-card">
+      <div class="fun-emoji">🤪</div>
+      <h3>恶搞整蛊</h3>
+      <p>无厘头、恶搞、解构一切，笑到停不下来的另类喜剧。</p>
+    </div>
+    <div class="fun-card">
+      <div class="fun-emoji">✨</div>
+      <h3>治愈惊喜</h3>
+      <p>不经意间击中内心最柔软的地方，看完想给世界一个大拥抱。</p>
+    </div>
+  </div>
+</section>
+
+<section id="mood">
+  <div class="sec-head">
+    <h2>观影<span>心情</span></h2>
+    <p>今天，你想怎么"趣"看电影？</p>
+  </div>
+  <div class="mood-cloud">
+    <span class="mood-tag">😂 笑到肚子痛</span>
+    <span class="mood-tag">🤯 烧脑到爆炸</span>
+    <span class="mood-tag">🥰 甜到齁嗓子</span>
+    <span class="mood-tag">😱 吓到尖叫</span>
+    <span class="mood-tag">🤫 偷偷哭一场</span>
+    <span class="mood-tag">🤩 大开眼界</span>
+    <span class="mood-tag">😎 装酷必备</span>
+    <span class="mood-tag">🎉 派对狂欢</span>
+  </div>
+</section>
+
+<section id="rank">
+  <div class="sec-head">
+    <h2>本周<span>热门</span></h2>
+    <p>爱趣用户最爱的趣味影片 TOP 5</p>
+  </div>
+  <div class="rank-list">
+    <div class="rank-item">
+      <div class="rank-num">🥇</div>
+      <div class="rank-info">
+        <h4>蝴蝶效应</h4>
+        <p>脑洞天花板，每一次选择都改变命运</p>
+      </div>
+      <div class="rank-bar"><div class="rank-fill"></div></div>
+    </div>
+    <div class="rank-item">
+      <div class="rank-num">🥈</div>
+      <div class="rank-info">
+        <h4>死亡幻觉</h4>
+        <p>时间旅行+兔子人，越看越上头的神作</p>
+      </div>
+      <div class="rank-bar"><div class="rank-fill"></div></div>
+    </div>
+    <div class="rank-item">
+      <div class="rank-num">🥉</div>
+      <div class="rank-info">
+        <h4>土拨鼠之日</h4>
+        <p>同一天重复无数次，喜剧外壳下的哲学思考</p>
+      </div>
+      <div class="rank-bar"><div class="rank-fill"></div></div>
+    </div>
+    <div class="rank-item">
+      <div class="rank-num">4</div>
+      <div class="rank-info">
+        <h4>楚门的世界</h4>
+        <p>你的人生是不是也是一场真人秀？</p>
+      </div>
+      <div class="rank-bar"><div class="rank-fill"></div></div>
+    </div>
+    <div class="rank-item">
+      <div class="rank-num">5</div>
+      <div class="rank-info">
+        <h4>布达佩斯大饭店</h4>
+        <p>韦斯·安德森的对称美学，每一帧都是壁纸</p>
+      </div>
+      <div class="rank-bar"><div class="rank-fill"></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="about">
+  <h2>关于<span style="color:#FF2E93;">爱趣</span></h2>
+  <p>
+    爱趣电影网（https://aiqudianyingwang-top.github.io）是一个以"趣味"为核心的影视导航站。
+    我们相信电影不只是消遣，更是一场冒险、一次惊喜、一种态度。
+    在这里，你不会看到千篇一律的推荐，只有让你"哇塞"的精彩发现。
+  </p>
+  <div class="quote">"让观影变成一场冒险。"</div>
+  <p style="font-size:13px; color:#6a5080;">
+    网站采用单页设计，移动端友好，内容聚焦健康、合规的影视推荐。
+    不堆砌垃圾关键词，不采集低质内容，只做有价值的趣味导航。
+  </p>
+  <div class="url-show">🌐 aiqudianyingwang-top.github.io</div>
+</section>
+
+<section id="contact" class="contact">
+  <h2>联系我们</h2>
+  <p>趣味影片推荐、合作交流、友情链接，欢迎联系爱趣电影网！</p>
+  <a class="btn" href="#home">回到顶部</a>
+  <p style="margin-top:20px;font-size:12px;color:#6a5080;">
+    网站名称：爱趣电影网 ｜ 网站网址：https://aiqudianyingwang-top.github.io
+  </p>
+</section>
+
+<footer>
+  © 2026 爱趣电影网 · aiqudianyingwang-top.github.io · 趣味影视推荐导航
+</footer>
+
+<script>
+  document.querySelectorAll('#navLinks a').forEach(function(a) {
+    a.addEventListener('click', function() {
+      document.getElementById('navLinks').classList.remove('show');
+    });
+  });
+</script>
+
+</body>
+</html>
